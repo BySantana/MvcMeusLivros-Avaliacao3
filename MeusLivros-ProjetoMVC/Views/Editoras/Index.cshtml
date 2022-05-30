@@ -1,0 +1,35 @@
+﻿@model IEnumerable<MeusLivros_ProjetoMVC.Models.Editora>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Editoras</h1>
+
+<p>
+    <a asp-action="Create">Adicionar nova Editora</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.NomeEditora)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.NomeEditora)
+            </td>
+            <td>
+                <a asp-action="Edit" asp-route-id="@item.EditoraId"><img src="imagens/icons8-editar-24.png" /></a> |
+                <a asp-action="Details" asp-route-id="@item.EditoraId"><img src="imagens/icons8-documento-24.png" /></a> |
+                <a asp-action="Delete" asp-route-id="@item.EditoraId"><img src="imagens/icons8-lixo-24.png" /></a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
